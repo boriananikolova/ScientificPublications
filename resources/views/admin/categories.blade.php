@@ -5,7 +5,7 @@
 
 
 @section('scripts')
-    <script src="{{ asset('js/categories.js') }}"></script>
+    <script src="{{ asset('js/admin/categories.js') }}"></script>
 @stop
 
 
@@ -50,10 +50,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>ID</td>
-                                    <td>Category</td>
-                                </tr>
+                                @foreach ($categories as $category)
+                                    <tr>
+                                        <td>{{$category['id']}}</td>
+                                        <td>{{$category['category']}}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                             <tfoot>
                                 <tr>

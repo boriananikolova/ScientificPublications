@@ -27,5 +27,9 @@ Route::group(['middleware' => 'auth'], function()
     Route::get('/dashboard', 'AdminController@dashboard')->name('dashboard');
 
     Route::get('/categories', 'CategoriesController@index')->name('categories');
+
+    Route::get('/category/{id?}', 'CategoriesController@showCategory')->name('category');
+
+    Route::post('/category', 'CategoriesController@saveCategory')->name('saveCategory');
 });
 
