@@ -31,5 +31,13 @@ Route::group(['middleware' => 'auth'], function()
     Route::get('/category/{id?}', 'CategoriesController@showCategory')->name('category');
 
     Route::post('/category', 'CategoriesController@saveCategory')->name('saveCategory');
+
+    Route::post('/del-category', 'CategoriesController@deleteCategory')->name('deleteCategory');
+
+    Route::get('/publications', 'PublicationsController@index')->name('publications');
+
+    Route::get('/publication/{id?}', 'PublicationsController@showPublication')->name('publication');
+
+    Route::post('/publication', 'PublicationsController@savePublication')->name('savePublication');
 });
 

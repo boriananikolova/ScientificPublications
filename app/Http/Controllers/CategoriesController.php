@@ -9,7 +9,7 @@ class CategoriesController extends Controller
 {
     public function index()
     {
-        $categories = Category::orderBy('created_at', 'desc')->get();
+        $categories = Category::orderBy('id', 'desc')->get();
         return view('admin.categories')->with(array('categories'=>$categories));
     }
 
@@ -39,28 +39,42 @@ class CategoriesController extends Controller
                 //Adding new category
                 $category = new Category;
                 $category->category = $request->input('category');
-                $category->save();
-                $insert = Category::insert(['category'=>$category]);
-                if($insert){
-                    return redirect('/categories')->with('message', 'Успешно записахте новата категория!');
+                if($category->save()) {
+                    return redirect()->route('categories')->with('success', 'Category successfully added!');
                 }
                 else{
-                    return redirect('/categories')->with('message', 'Грешка при записване на категория!');
+                    return redirect()->route('categories')->with('error', 'Category was not added!');
                 }
             }
             else{
                 //Changing existing category
-                $category = $request->input('category');
-                $update = Category::where(['id'=>$request->input('category')])->update(['category'=>$category]);
-                if($update){
-                    return redirect('/categories')->with('message', 'Успешно променихте категорията!');
+                $category = Category::findOrFail($request->input('id'));
+                $category->category = $request->input('category');
+                if ($category->save()) {
+                    return redirect()->route('categories')->with('success', 'Category successfully updated!');
                 }
                 else{
-                    return redirect('/categories')->with('message', 'Грешка при промяната на категорията!');
+                    return redirect()->route('categories')->with('error', 'Category was not updated!');
                 }
             }
+        }
+        else{
+            return redirect()->route('categories')->with('error', 'Wrong request method!');
+        }
+    }
 
-            return redirect('/categories');
+    public function deleteCategory(Request $request)
+    {
+        if($request->isMethod('POST')){
+            if (!empty($request->input('id'))){
+                $category = Category::where(['id' => $request->input('id')])->first();
+                if (!empty($category)){
+                    $category->delete();
+                    return response()->json(['result' => 'del']);
+                }else{
+                    return response()->json(['result' => 'not']);
+                }
+            }    
         }
     }
 }

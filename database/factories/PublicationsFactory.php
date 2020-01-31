@@ -12,6 +12,7 @@ $factory->define(Publication::class, function (Faker $faker) {
         'author'  => $faker->text(20),
         'type' => $faker->randomElement(['article' ,'report', 'book']),
         'publication' => $faker->text(300),
-        'categoryId' => Category::all()->random()->id
+        'categoryId' => Category::all()->random()->id,
+        'imgurl' => ''
     ];
 });

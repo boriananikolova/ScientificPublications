@@ -22,7 +22,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="{{route('publications')}}">
 					<i class="fa fa-list"></i> <span>Publications</span>
 				</a>
 			</li>

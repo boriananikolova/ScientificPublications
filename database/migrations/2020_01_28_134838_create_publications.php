@@ -20,6 +20,7 @@ class CreatePublications extends Migration
             $table->enum('type', ['article', 'report', 'book']);
             $table->longText('publication');
             $table->integer('categoryId');
+            $table->string('imgurl')->nullable();
             $table->timestamps();
         });
     }

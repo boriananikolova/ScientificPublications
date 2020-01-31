@@ -1,3 +1,6 @@
+@php
+    use App\Category;
+@endphp
 @extends('admin.layouts.master')
 
 @section('styles')
@@ -5,7 +8,7 @@
 
 
 @section('scripts')
-<script src="{{ asset('js/admin/categories.js') }}"></script>
+<script src="{{ asset('js/admin/publications.js') }}"></script>
 @stop
 
 
@@ -13,12 +16,12 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Categories
-        <small>Manage all categories</small>
+        Publications
+        <small>Manage all publications</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li class="active">Manage all categories</li>
+        <li class="active">Manage all publications</li>
     </ol>
 </section>
 
@@ -33,14 +36,14 @@
             <!-- TO DO List -->
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Categories</h3>
+                    <h3 class="box-title">Publications</h3>
                     <div class="box-tools pull-right">
                         <button id="btn_edit" disabled type="button" class="btn btn-sm btn-primary"><i
-                                class="fa fa-pencil"></i>&nbsp; Edit Category</button>
+                                class="fa fa-pencil"></i>&nbsp; Edit Publication</button>
                         <button id="btn_create" type="button" class="btn btn-sm btn-primary"><i
-                                class="fa fa-calculator"></i>&nbsp; Create Category</button>
+                                class="fa fa-calculator"></i>&nbsp; Create Publication</button>
                         <button id="btn_delete" disabled type="button" class="btn btn-sm btn-danger"><i
-                                class="fa fa-trash"></i>&nbsp; Delete Category</button>
+                                class="fa fa-trash"></i>&nbsp; Delete Publication</button>
                     </div>
                 </div>
                 <!-- /.box-header -->
@@ -54,24 +57,36 @@
                             {{ session('error') }}
                         </div>
                     @endif
-                    <table id="categories" class="cell-border hover" cellspacing="0" width="100%">
+                    <table id="publications" class="cell-border hover" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 <th>№</th>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Type</th>
                                 <th>Category</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($categories as $category)
-                            <tr>
-                                <td>{{$category['id']}}</td>
-                                <td>{{$category['category']}}</td>
-                            </tr>
+                            @foreach ($publications as $publication)
+                                @php
+                                    $category = Category::where(['id' => $publication->categoryId])->first();
+                                @endphp                                
+                                    <tr>
+                                        <td>{{$publication['id']}}</td>
+                                        <td>{{$publication['title']}}</td>
+                                        <td>{{$publication['author']}}</td>
+                                        <td>{{$publication['type']}}</td>
+                                        <td>{{!empty($category) ? $category->category : "Uncategorized"}}</td>
+                                    </tr>
                             @endforeach
                         </tbody>
                         <tfoot>
                             <tr>
                                 <th>№</th>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Type</th>
                                 <th>Category</th>
                             </tr>
                         </tfoot>

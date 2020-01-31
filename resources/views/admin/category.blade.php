@@ -18,7 +18,7 @@
         @endif
     </h1>
     <ol class="breadcrumb">
-        <li><a href="/cp.php"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i>Dashboard</a></li>
         @if($category['id'] != 0)
         <li class="active">{{$category['category']}}</li>
         @endif
@@ -44,7 +44,7 @@
                 <form name="data_form" action="{{ route('saveCategory') }}"
                     method="POST">
                     @csrf
-                    <input type="hidden" name="name" value="{{$category['id']}}">
+                    <input type="hidden" name="id" value="{{$category['id']}}">
                     <div class="box-body">
                         <div class="input-group" style="padding-bottom:5px;">
                             <span class="input-group-addon" style="min-width:300px;">Category name:</span>
