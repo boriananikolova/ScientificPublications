@@ -7,7 +7,7 @@
 				<img src="{{ asset('img/user_avatar.png') }}" class="img-circle" alt="User Image">
 			</div>
 			<div class="pull-left info">
-				<p>Username</p>
+				<p>{{Auth::user()->name}}</p>
 				<a href="{{route('dashboard')}}"><i class="fa fa-circle text-success"></i> Online</a>
 			</div>
 		</div>
@@ -17,7 +17,7 @@
 			<!-- Панел -->
 			<li><a href="{{route('dashboard')}}"><i class="fa fa-tasks"></i> <span>Dashboard</span></a></li>
 			<li>
-				<a href="#">
+				<a href="{{route('users')}}">
 					<i class="fa fa-user"></i> <span>Users</span>
 				</a>
 			</li>

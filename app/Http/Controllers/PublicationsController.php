@@ -118,4 +118,19 @@ class PublicationsController extends Controller
             return redirect()->route('publications')->with('error', 'Wrong request method!');
         }
     }
+
+    public function deletePublication(Request $request)
+    {
+        if($request->isMethod('POST')){
+            if (!empty($request->input('id'))){
+                $publication = Publication::where(['id' => $request->input('id')])->first();
+                if (!empty($publication)){
+                    $publication->delete();
+                    return response()->json(['result' => 'del']);
+                }else{
+                    return response()->json(['result' => 'not']);
+                }
+            }    
+        }
+    }
 }

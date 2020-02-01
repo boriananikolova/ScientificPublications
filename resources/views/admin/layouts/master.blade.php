@@ -18,8 +18,8 @@
             <div class="content-wrapper">
                 @yield('content')
             </div>
-            @include('admin.layouts.footer')
         </div>
+        @include('admin.layouts.footer')
         @include('admin.layouts.script')
     </body>
 

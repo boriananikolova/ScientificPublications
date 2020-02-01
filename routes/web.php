@@ -39,5 +39,12 @@ Route::group(['middleware' => 'auth'], function()
     Route::get('/publication/{id?}', 'PublicationsController@showPublication')->name('publication');
 
     Route::post('/publication', 'PublicationsController@savePublication')->name('savePublication');
+
+    Route::post('/del-publication', 'PublicationsController@deletePublication')->name('deletePublication');
+
+    Route::get('/users', 'AdminController@showAllUsers')->name('users');
+
+    Route::post('/del-user', 'AdminController@deleteUser')->name('deleteUser');
+
 });
 

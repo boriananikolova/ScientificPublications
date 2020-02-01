@@ -9,5 +9,4 @@
 
 
 @section('content')
-    <p>This is the content</p>
 @stop
