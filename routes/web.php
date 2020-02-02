@@ -13,6 +13,8 @@
 
 Route::get('/', 'ClientController@index')->name('index');
 
+Route::post('/search', 'ClientController@search')->name('search');
+
 Auth::routes();
 
 
