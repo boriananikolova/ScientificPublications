@@ -42,13 +42,13 @@ use App\Category;
             <div class="card">
                 <h2>{{$publication['title']}}</h2>
                 <h5>{{$publication['author']}}</h5>
-                <div class="fakeimg" style="height:200px;">
+                <div class="fakeimg" style="height:200px; max-width:100%;">
                     @if (!empty($publication['imgurl']))
                     <img src="{{asset('storage/img/'.$publication['imgurl'])}}"
-                        style="vertical-align:bottom;max-height:180px;border:1px solid #dcdcdc;">
+                        style="vertical-align:bottom;max-width:100%;max-height:180px;border:1px solid #dcdcdc;">
                     @else
                     <img src="{{asset('img/noimg.png')}}"
-                        style="vertical-align:bottom;max-height:180px;border:1px solid #dcdcdc;">
+                        style="vertical-align:bottom;max-width:100%;max-height:180px;border:1px solid #dcdcdc;">
                     @endif
                 </div>
                 @php
