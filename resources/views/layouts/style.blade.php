@@ -1,7 +1,8 @@
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 <!-- Styles -->
 <style>
@@ -43,6 +44,8 @@
 
     .content {
         text-align: center;
+        position: absolute;
+        top: 20px;
     }
 
     .title {
@@ -63,6 +66,19 @@
         margin-bottom: 30px;
     }
 
+    /* Fake image */
+    .fakeimg {
+        width: 100%;
+        padding: 20px;
+    }
+
+    /* Add a card effect for articles */
+    .card {
+        background-color: white;
+        padding: 20px;
+        margin-top: 20px;
+        height:500px;
+    }
 </style>
 
 @yield('styles')

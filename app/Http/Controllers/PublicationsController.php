@@ -52,7 +52,7 @@ class PublicationsController extends Controller
                 $imageName = '';
                 if($request->hasFile('image')){
                     
-                    $blabla = $request->validate([
+                    $request->validate([
                         'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
                     ]);
                     
