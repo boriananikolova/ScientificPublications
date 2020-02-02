@@ -1,6 +1,6 @@
 # Project Title
 
-Science Publications
+Scientific Publications
 
 ## General Information
 
